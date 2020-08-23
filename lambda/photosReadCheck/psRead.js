@@ -1,5 +1,6 @@
 
 var pg = require('pg');
+var cf = require('./psConfig.js');
 
 async function readPhotosDB() {
 
@@ -9,15 +10,7 @@ async function readPhotosDB() {
     // Setup database connection parameters
     //------------------------------------------------
 
-    var dbConfig = {
-        user: 'photos_user',
-        password: 'photospw',
-        database: 'photosdb',
-        host: 'photos-db.cgeazz1epygk.us-east-1.rds.amazonaws.com',
-        port: 5432
-    };
-
-    var client = new pg.Client(dbConfig);
+    var client = new pg.Client(cf.dbConfig);
 
     //------------------------------------------------
     // Attempt to connect to the database
