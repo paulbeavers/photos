@@ -1,21 +1,23 @@
-const rd = require('./psRead.js')
 
-async function calldb()
+const sh = require('./psSendHeartbeat.js')
+
+async function calldb(sd)
 {       
-        var res = await rd.readPhotosDB();
-        console.log(res);
-        return(res);
+	        var res = await sh.sendHeartbeat(sd);
+	        console.log(res);
+	        return(res);
 }
 
 exports.handler = async (event) => {
 
-    var res = await calldb();
-    const response = {
-        statusCode: 200,
-        result: res
-    };
+	    var res = await calldb(event);
+	    const response = {
+		            statusCode: 200,
+		            result: res
+		        };
 
-    return response;
+	    return response;
 
 };
+
 
