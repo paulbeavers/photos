@@ -13,7 +13,7 @@ rm psLambda.zip
 #----------------------------------------------
 # Create new zip file
 #----------------------------------------------
-zip -r psLambda.zip $ZIPFILES
+zip -j psLambda.zip $ZIPFILES
 
 
 #----------------------------------------------
