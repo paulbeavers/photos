@@ -8,14 +8,16 @@ async function calldb()
 }
 
 exports.handler = async (event) => {
-
-    var res = await calldb();
-    const response = {
-        statusCode: 200,
-        result: res
-    };
-
-    return response;
-
+	var res = await calldb();
+	const response = {
+        	statusCode: 200,
+        	headers: {
+            		'Access-Control-Allow-Origin': '*',
+            		'Access-Control-Allow-Headers': '*',
+            		'Access-Control-Allow-Methods': 'GET',
+         	},
+        	body: res,
+    	};
+    	return response;
 };
 
